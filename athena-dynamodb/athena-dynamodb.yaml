@@ -77,3 +77,12 @@ Resources:
         #with one that is more restrictive and can only 'put' but not read,delete, or overwrite files.
         - S3CrudPolicy:
             BucketName: !Ref SpillBucket
+Outputs:
+  ConnectorConfigName:
+    Value: !Ref ConnectorConfig
+    Export:
+      Name: !Sub '${AWS::StackName}-ConnectorConfigName'
+  ConnectorConfigArn:
+    Value: !GetAtt ConnectorConfig.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ConnectorConfigArn'
